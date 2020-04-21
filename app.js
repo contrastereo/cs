@@ -1,16 +1,19 @@
 const body = document.querySelector('body')
 const board = document.querySelector(".board")
-let numOfSquares = 4;
+
+let numOfSquares = 16;
 const sqmaker = ()=>{
   let sqTotal = (numOfSquares*numOfSquares);
   let sqSize = 100/numOfSquares
-  for(i = 0; 0 < sqTotal; i++){
+  document.querySelector(".board").style.gridTemplateRows = `repeat(${numOfSquares}, 1fr)`
+  document.querySelector(".board").style.gridTemplateColumns = `repeat(${numOfSquares}, 1fr)`
+  for(i = 0; i < sqTotal; i++){
     let sq = document.createElement('div')
     sq.className = 'square';
-    sq.style.height =  `${sqSize}%`;
-    sq.style.width =  `${sqSize}%`;
+    sq.addEventListener("mouseover", () =>{
+      sq.style.backgroundColor="black"
+    })
     board.appendChild(sq)
-    
   }
 }
 
